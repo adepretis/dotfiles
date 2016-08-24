@@ -3,11 +3,8 @@ is_osx || return 0
 (
 	# Homebrew packages to install
 	packages=(
-		astyle
 		caskroom/cask/brew-cask
-		cmake
 		colordiff
-		ctags
 		dos2unix
 		git
 		gradle
@@ -20,7 +17,6 @@ is_osx || return 0
 		vim
 		watch
 		wget
-		xz
 	)
 
 	# Install homebrew first

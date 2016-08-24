@@ -65,5 +65,5 @@
 [push]
 	default = matching
 [user]
-	name = Jan Michael Auer
+	name = Andreas de Pretis
 	useconfigonly = true

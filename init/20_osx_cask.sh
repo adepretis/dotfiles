@@ -4,29 +4,17 @@ is_osx || return 0
 	# Casks to install
 	casks=(
 		1password
-		android
-		atom
-		clion
-		djview
+		android-studio
 		dropbox
 		evernote
-		firefox
 		flux
 		flycut
-		goofy
-		hipchat
-		inkscape
-		insync
 		intellij-idea
 		intel-haxm
-		istumbler
 		iterm2
 		java
-		jdownloader
-		mou
-		osxfuse
+		mou # Markdown Editor
 		phpstorm
-		pycharm
 		qlcolorcode
 		qlimagesize
 		qlmarkdown
@@ -34,13 +22,10 @@ is_osx || return 0
 		quicklook-csv
 		quicklook-json
 		skype
-		speak
 		spotify
 		teamviewer
-		texpad
 		vagrant
 		vlc
-		webstorm
 	)
 
 	# Install the casks
