@@ -7,6 +7,7 @@ is_osx || return 0
 		dos2unix
 		git
 		gradle
+		lua
 		node
 		optipng
 		ssh-copy-id
