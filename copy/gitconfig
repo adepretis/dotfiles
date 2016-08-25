@@ -66,4 +66,5 @@
 	default = matching
 [user]
 	name = Andreas de Pretis
+	email = ad@25th-floor.com
 	useconfigonly = true
