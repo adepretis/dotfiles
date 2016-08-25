@@ -3,7 +3,6 @@ is_osx || return 0
 (
 	# Homebrew packages to install
 	packages=(
-		caskroom/cask/brew-cask
 		colordiff
 		dos2unix
 		git
