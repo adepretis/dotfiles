@@ -13,7 +13,7 @@ is_osx || return 0
 		intel-haxm
 		iterm2
 		java
-		mou # Markdown Editor
+		macdown # Markdown Editor
 		phpstorm
 		qlcolorcode
 		qlimagesize
