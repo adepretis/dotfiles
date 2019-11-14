@@ -1,5 +1,7 @@
 is_osx || return 0
 
+return 0
+
 (
 	# Homebrew packages to install
 	packages=(

@@ -1,47 +1,106 @@
-source $HOME/.zgen/zgen.zsh
+ZGEN_RESET_ON_CHANGE=(${HOME}/.zshrc ${HOME}/.zshrc.local)
 
-ZSH_THEME="muse"
+source "${HOME}/.zgen/zgen.zsh"
+
+#ZSH_THEME="muse"
+ZSH_THEME=powerlevel10k/powerlevel10k
 
 # Custom oh-my-zsh confiuration
 DEFAULT_USER="adepretis"
 DISABLE_AUTO_TITLE="true"
+DISABLE_AUTO_UPDATE="false"
+UPDATE_ZSH_DAYS=14
 DISABLE_UNTRACKED_FILES_DIRTY="true"
 HIST_STAMPS="dd.mm.yyyy"
 
 # Build zgen cache if necessary
 if ! zgen saved; then
-	zgen load unixorn/autoupdate-zgen
+	echo "Creating a zgen save"
 
 	# Load oh-my-zsh
 	zgen oh-my-zsh
 
 	# Bundles from oh-my-zsh
 	zgen oh-my-zsh plugins/common-aliases
-	zgen oh-my-zsh plugins/colored-man-pages
 	zgen oh-my-zsh plugins/gitfast
 	zgen oh-my-zsh plugins/tmux
-	zgen oh-my-zsh plugins/vagrant
+	#zgen oh-my-zsh plugins/github
+	zgen oh-my-zsh plugins/z
+	zgen oh-my-zsh plugins/terraform
 	zgen oh-my-zsh plugins/docker
 	zgen oh-my-zsh plugins/docker-compose
 	zgen oh-my-zsh plugins/rbenv
 	zgen oh-my-zsh plugins/vundle
 
-	# Other third-party plugins
-	zgen load zsh-users/zsh-syntax-highlighting
+	#zgen oh-my-zsh plugins/sudo
+	#zgen oh-my-zsh plugins/git
+	#zgen oh-my-zsh plugins/history
+	zgen oh-my-zsh plugins/tmuxinator
+	zgen oh-my-zsh plugins/jira
+	zgen oh-my-zsh plugins/last-working-dir
+	zgen oh-my-zsh plugins/yarn
+	#zgen oh-my-zsh plugins/shrink-path
+	zgen oh-my-zsh plugins/iterm2
+
+	zgen loadall <<EOPLUGINS
+		floor114/zsh-apple-touchbar
+		chrissicool/zsh-256color
+		zsh-users/zsh-autosuggestions
+		zsh-users/zsh-syntax-highlighting
+		wbingli/zsh-wakatime
+EOPLUGINS
 
 	# OS specific plugins
 	if [[ "$OSTYPE" == "linux-gnu" ]]; then
 
 	elif [[ "$OSTYPE" == "darwin"* ]]; then
 		zgen oh-my-zsh plugins/brew
-		zgen oh-my-zsh plugins/brew-cask
 		zgen oh-my-zsh plugins/osx
 	fi
 
 	# Own settings and overrides
 	zgen load adepretis/zsh-config
-	zgen load jan-auer/zsh-multiline multiline
+	zgen load romkatv/powerlevel10k powerlevel10k
 
 	# Save the plugins
 	zgen save
 fi
+
+export PAGER="less -FRX"
+export EDITOR=vim
+export VISUAL=vim
+
+alias dds="cd /Volumes/DevStorage"
+alias eas="cd /Volumes/easyname"
+alias kinit="kinit"
+alias k="kubectl"
+alias gst="git status"
+
+# zsh tmux settings
+export ZSH_TMUX_AUTOSTART=true
+export ZSH_TMUX_AUTOCONNECT=true
+source ~/.tmuxinator.zsh
+
+# nvm
+export NVM_DIR="$HOME/.nvm"
+. "/usr/local/opt/nvm/nvm.sh"
+
+# OpenSSL
+export LANG="en_US.UTF-8"
+
+# Fuzzy search
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+[ -f ~/.fubectl.source ] && source ~/.fubectl.source
+
+# Kubernetes
+export KUBECONFIG=~/.kube/config:~/.kube/easyname
+
+# Paths
+export PATH="/usr/local/opt/openssl/bin:$PATH"
+export PATH="/usr/local/opt/curl/bin:$PATH"
+export PATH="/usr/local/opt/gettext/bin:$PATH"
+export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ -f ~/.p10k.zsh ]] && source ~/.p10k.zsh
+

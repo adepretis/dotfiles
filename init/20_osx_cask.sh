@@ -1,30 +1,19 @@
 is_osx || return 0
 
+return 0
+
 (
 	# Casks to install
 	casks=(
-		1password
-		android-studio
 		dropbox
 		evernote
 		flux
 		flycut
-		intellij-idea
-		intel-haxm
 		iterm2
-		java
 		macdown # Markdown Editor
-		phpstorm
-		qlcolorcode
-		qlimagesize
-		qlmarkdown
-		qlprettypatch
-		quicklook-csv
-		quicklook-json
 		skype
 		spotify
 		teamviewer
-		vagrant
 		vlc
 	)
 
